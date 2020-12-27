@@ -75,5 +75,7 @@ function genDaemons(count) {
     return daemons.reverse();
 }
 
+let matrixElement = document.querySelector('.js-matrix');
+
 matrixElement.appendChild(genMatrixHtml(genMatrix(MATRIX_SIZE)));
 
