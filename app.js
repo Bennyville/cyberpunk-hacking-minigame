@@ -75,6 +75,27 @@ function genDaemons(count) {
     return daemons.reverse();
 }
 
+function genDaemonsHtml(daemonsEl, daemons) {
+    daemons.forEach((daemon) => {
+        let ul = document.createElement('ul');
+        ul.classList.add('daemons__sequence');
+
+        daemon.forEach((code) => {
+            let li = document.createElement('li');
+            li.classList.add('daemons__code');
+            li.textContent = code;
+
+            ul.appendChild(li);
+        })
+
+        daemonsEl.appendChild(ul);
+    })
+}
+
+let daemonsElement = document.querySelector('.js-daemons');
+
+genDaemonsHtml(daemonsElement, genDaemons(4));
+
 let matrixElement = document.querySelector('.js-matrix');
 
 matrixElement.appendChild(genMatrixHtml(genMatrix(MATRIX_SIZE)));
