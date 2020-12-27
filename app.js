@@ -21,23 +21,27 @@ function genMatrix(lineLength) {
 function genMatrixHtml(matrix) {
     let tbody = document.createElement('tbody');
 
-    matrix.forEach((row) => {
+    for(let i = 0; i < matrix.length; i++) {
+        let row = matrix[i];
+
         let tr = document.createElement('tr');
         tr.classList.add('matrix__row');
 
-        row.forEach((cell) => {
+        for(let j = 0; j < row.length; j++) {
             let td = document.createElement('td');
             td.classList.add('matrix__cell')
 
             let button = document.createElement('button');
-            button.textContent = cell;
-
+            button.textContent = row[j];
+            button.dataset.row = i;
+            button.dataset.col = j;
+            
             td.appendChild(button);
             tr.appendChild(td);
-        })
+        }
 
         tbody.appendChild(tr);
-    })
+    }
 
     return tbody;
 }
