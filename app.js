@@ -17,5 +17,32 @@ function genMatrix(lineLength) {
     return matrix;
 }
 
-console.log(genMatrix(5));
+function genMatrixHtml(matrix) {
+    let tbody = document.createElement('tbody');
+
+    matrix.forEach((row) => {
+        let tr = document.createElement('tr');
+        tr.classList.add('matrix__row');
+
+        row.forEach((cell) => {
+            let td = document.createElement('td');
+            td.classList.add('matrix__cell')
+
+            let button = document.createElement('button');
+            button.textContent = cell;
+
+            td.appendChild(button);
+            tr.appendChild(td);
+        })
+
+        tbody.appendChild(tr);
+    })
+
+    return tbody;
+}
+
+let matrixElement = document.querySelector('.js-matrix');
+
+
+matrixElement.appendChild(genMatrixHtml(genMatrix(5)));
 
