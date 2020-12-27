@@ -3,7 +3,6 @@ const MATRIX_SIZE = 5;
 let codes = ['1C', '55', '7A', 'BD', 'E9'];
 
 let puffer;
-let daemons;
 
 function genMatrix(lineLength) {
     let matrix = [];
@@ -43,9 +42,38 @@ function genMatrixHtml(matrix) {
     return tbody;
 }
 
-let matrixElement = document.querySelector('.js-matrix');
+function genDaemons(count) {
+    let daemons = [];
 
+    let seqLengthMin = 2;
+    let seqLengthMax = count;
 
+    for(let i = count; i > 0; i--) {
+        let seqLengthCurrent = 2;
+
+        if(i === seqLengthMax) {
+            seqLengthCurrent = seqLengthMax;
+        } else if(i < seqLengthMax && i >= seqLengthMin) {
+            seqLengthCurrent = Math.round(Math.random() * (seqLengthMax - seqLengthMin) + seqLengthMin);
+        }
+
+        let prevDaemon = daemons[count - i - 1] || false;
+
+        if(prevDaemon && seqLengthCurrent > prevDaemon.length) {
+            seqLengthCurrent = prevDaemon.length;
+        }
+
+        let daemon = [];
+
+        for(let j = 0; j < seqLengthCurrent; j++) {
+            daemon.push(codes[Math.floor(Math.random() * codes.length)]);
+        }
+
+        daemons.push(daemon);
+    }
+
+    return daemons.reverse();
+}
 
 matrixElement.appendChild(genMatrixHtml(genMatrix(MATRIX_SIZE)));
 
