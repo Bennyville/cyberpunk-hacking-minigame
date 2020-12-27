@@ -1,3 +1,5 @@
+const MATRIX_SIZE = 5;
+
 let codes = ['1C', '55', '7A', 'BD', 'E9'];
 
 let puffer;
@@ -44,5 +46,6 @@ function genMatrixHtml(matrix) {
 let matrixElement = document.querySelector('.js-matrix');
 
 
-matrixElement.appendChild(genMatrixHtml(genMatrix(5)));
+
+matrixElement.appendChild(genMatrixHtml(genMatrix(MATRIX_SIZE)));
 
