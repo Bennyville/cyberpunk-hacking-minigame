@@ -1,6 +1,6 @@
 const MATRIX_SIZE = 5;
 
-let codes = ['1C', '55', '7A', 'BD', 'E9'];
+let chars = ['1C', '55', '7A', 'BD', 'E9'];
 
 let puffer;
 
@@ -11,7 +11,7 @@ function genMatrix(lineLength) {
         matrix[i] = [];
 
         for(let j = 0; j < lineLength; j++) {
-            matrix[i].push(codes[Math.floor(Math.random() * codes.length)]);
+            matrix[i].push(chars[Math.floor(Math.random() * chars.length)]);
         }
     }
 
@@ -66,7 +66,7 @@ function genDaemons(count) {
         let daemon = [];
 
         for(let j = 0; j < seqLengthCurrent; j++) {
-            daemon.push(codes[Math.floor(Math.random() * codes.length)]);
+            daemon.push(chars[Math.floor(Math.random() * chars.length)]);
         }
 
         daemons.push(daemon);
@@ -80,10 +80,10 @@ function genDaemonsHtml(daemonsEl, daemons) {
         let ul = document.createElement('ul');
         ul.classList.add('daemons__sequence');
 
-        daemon.forEach((code) => {
+        daemon.forEach((char) => {
             let li = document.createElement('li');
-            li.classList.add('daemons__code');
-            li.textContent = code;
+            li.classList.add('daemons__char');
+            li.textContent = char;
 
             ul.appendChild(li);
         })
