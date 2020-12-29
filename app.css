@@ -7,13 +7,23 @@ button {
     font-family: inherit;
 }
 
+.sequence {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    padding-left: 0;
+}
+
+.sequence__char {
+    margin-right: 1rem;
+}
+
 .char {
     align-items: center;
     background-color: transparent;
     border: 2px solid transparent;
     color: #d0ed57;
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     font-size: 28px;
     height: 48px;
     justify-content: center;

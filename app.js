@@ -25,18 +25,18 @@ function genMatrixHtml(matrix) {
         let row = matrix[i];
 
         let tr = document.createElement('tr');
-        tr.classList.add('matrix__row');
+        tr.classList.add('matrix__row', 'sequence');
 
         for(let j = 0; j < row.length; j++) {
             let td = document.createElement('td');
             td.classList.add('matrix__cell')
 
             let button = document.createElement('button');
-            button.classList.add('char');
+            button.classList.add('sequence__char', 'char');
             button.textContent = row[j];
             button.dataset.row = i;
             button.dataset.col = j;
-            
+
             td.appendChild(button);
             tr.appendChild(td);
         }
@@ -83,11 +83,11 @@ function genDaemons(count) {
 function genDaemonsHtml(daemonsEl, daemons) {
     daemons.forEach((daemon) => {
         let ul = document.createElement('ul');
-        ul.classList.add('daemons__sequence');
+        ul.classList.add('sequence');
 
         daemon.forEach((char) => {
             let li = document.createElement('li');
-            li.classList.add('daemons__char');
+            li.classList.add('sequence__char', 'char');
             li.textContent = char;
 
             ul.appendChild(li);
