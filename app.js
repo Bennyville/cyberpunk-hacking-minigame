@@ -32,6 +32,7 @@ function genMatrixHtml(matrix) {
             td.classList.add('matrix__cell')
 
             let button = document.createElement('button');
+            button.classList.add('char');
             button.textContent = row[j];
             button.dataset.row = i;
             button.dataset.col = j;

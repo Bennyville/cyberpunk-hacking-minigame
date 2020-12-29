@@ -5,3 +5,20 @@ body {
 button {
     font-family: inherit;
 }
+
+.char {
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: #d0ed57;
+    cursor: pointer;
+    display: flex;
+    font-size: 28px;
+    height: 48px;
+    justify-content: center;
+    width: 48px;
+}
+
+.char:hover {
+    border-color: #d0ed57;
+}
